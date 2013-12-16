@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Puzzles</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <div class="cover"><p class="cover-title">Puzzles</p></div>
+
+    <div class="puzzles"></div>
+
+    <script type="text/template" id="puzzleHtml">
+<div class="modal fade">
+    <div class="modal-dialog" style="margin-top: 100px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Puzzle</h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <form class="form-inline" role="form">
+                    <div class="form-group col-sm-10">
+                        <input name="anwser" type="text" class="form-control" placeholder="Enter anwser">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    </script>
+
+    <script type="text/template" id="puzzle-1-tpl">
+<p>One body</p>
+    </script>
+
+    <script type="text/template" id="puzzle-2-tpl">
+<p>Two body</p>
+    </script>
+
+    </script>
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
