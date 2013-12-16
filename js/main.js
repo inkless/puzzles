@@ -8,6 +8,13 @@
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'
     ];
 
+    var _puzzleHint = [{
+        content: 'aaaa'
+    }, {
+        title: 'title',
+        content: 'bbbb'
+    }];
+
     var Puzzles = function(total) {
         this.puzzles = [];
         for (var i=1; i<=total; ++i) {
@@ -18,7 +25,8 @@
     };
 
     Puzzles.prototype.showByIndex = function(index) {
-        
+        this.puzzles[this.curIndex - 1].modal('hide');
+        this.open(this.curIndex - 1);
     };
 
     Puzzles.prototype.showNext = function() {
@@ -32,7 +40,7 @@
 
         var me = this;
         setTimeout(function() {
-            me.open(me.curIndex++);
+            me.open(me.curIndex);
         }, 500)
     };
 
@@ -51,6 +59,7 @@
 
         $puzzle.find(".modal-title").html('Puzzle '+index);
         $puzzle.find(".modal-body").html($("#puzzle-"+index+"-tpl").html());
+        $puzzle.find(".hint").popover(_puzzleHint[index - 1]);
 
         var me = this;
         $puzzle.find("form").on("submit", function(e) {
@@ -67,6 +76,7 @@
           keyboard: false,
           backdrop: 'static'
         });
+        this.curIndex = index + 1;
     };
 
     Puzzles.prototype.setEndCb = function(cb) {
@@ -80,16 +90,19 @@
 
 $(document).ready(function() {
 
+    // fadeout cover
     setTimeout(function() {
         $(".cover").css("top", '-100%');
-    }, 2000);
+    }, 0);
 
     var puzzles = new Puzzles(2);
     puzzles.setEndCb(function() {
-        alert('end');
+        // show prize
+        $(".prize").css("top", 0);
     })
 
     $(".cover").on("transitionEnd webkitTransitionEnd oTransitionEnd mozTransitionEnd", function() {
+        // open puzzles
         puzzles.open();
     });
 

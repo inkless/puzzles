@@ -8,14 +8,23 @@
 </head>
 <body>
     <div class="cover"><p class="cover-title">Puzzles</p></div>
-
     <div class="puzzles"></div>
+    <div class="prize">
+        <div class="video">
+            <video width="640" height="480" controls>
+                <source src="resources/movie.mp4" type="video/mp4">
+                <source src="resources/movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 
     <script type="text/template" id="puzzleHtml">
 <div class="modal fade">
     <div class="modal-dialog" style="margin-top: 100px">
         <div class="modal-content">
             <div class="modal-header">
+                <a class="hint" href="javascript:;" style="float:right;">hint</a>
                 <h4 class="modal-title">Puzzle</h4>
             </div>
             <div class="modal-body"></div>
